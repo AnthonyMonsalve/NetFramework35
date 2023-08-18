@@ -19,4 +19,5 @@ jobs:
 
       - name: Setup MSBuild
         run: |
-          Get-Location       
+          Get-Location
+          Get-Location
