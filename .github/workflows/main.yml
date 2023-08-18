@@ -1,0 +1,22 @@
+name: Acción de Autohospedado
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Hacer git clone
+        run: |
+          cd C:\Users\Administrador\Documents
+          $fecha = Get-Date
+          $fechaString = $fecha.ToString()
+          $fechafinal = $fechaString.Replace(" ", "-").Replace(":", "-").Replace("/","-")
+          mkdir $fechafinal
+          cd $fechafinal
+          git clone https://github.com/AnthonyMonsalve/NetFramework35.git
+
+      - name: Setup MSBuild
+        run: |
+          Get-Location       
