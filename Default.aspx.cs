@@ -16,7 +16,7 @@ namespace NetFramework35
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Label1.Text = "Hello World" ;
+            Label1.Text = "Hello World";
         }
     }
 }
