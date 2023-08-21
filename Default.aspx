@@ -9,7 +9,7 @@
         <title></title>
     </head>
 
-    <body style="background-image: url('https://instapago.com/wp-content/uploads/backgound.jpg'); background-size: cover; display: flex; justify-content: center; align-items: center; min-height: 100vh; box-sizing: border-box">
+    <body style="background-image: url('https://instapago.com/wp-content/uploads/backgound.jpg'); background-size: cover; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; box-sizing: border-box; overflow: hidden">
         <form id="form1" runat="server" style="display: flex; flex-direction: column; align-items: center">
             <img src="https://instapago.com/wp-content/uploads/logoinstapago.png"  style="filter: brightness(0) invert(1);"/>
             <div style="display:flex; align-items: center; padding: 10px; justify-content: center">
@@ -28,8 +28,13 @@
 
                 <asp:Label ID="Label1" runat="server" Text="Aplicación de Instapago" style="padding: 9px 15px; background: #EC7010; border-radius: 5px; color: white; font-family: sans-serif; font-weight: 600;"> </asp:Label>
             </div>
-            <img src="https://instapago.com/wp-content/uploads/punto.png"  style="margin: 20px auto;" width="200"/>
         </form>
+        <div style="display: flex; align-items: center; justify-content: center; margin-top: 25px">
+            <img src="https://pngimg.com/d/github_PNG83.png" style="filter: brightness(0) invert(1); margin-right: 10px" width="25" />
+            <p style="color: #fff; font-family: sans-serif; font-size: 14px;">Repositorio <a href="https://github.com/AnthonyMonsalve/NetFramework35" style="color: #fff" target="_blank">AnthonyMonsalve/NetFramework35</a></p>
+        </div>
+
+         <img src="https://instapago.com/wp-content/uploads/punto.png" style="position: absolute; left: 69%; bottom: -15%; width: 415px;" />
     </body>
 
     </html>
