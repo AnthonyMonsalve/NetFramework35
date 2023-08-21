@@ -21,7 +21,9 @@ jobs:
 
           $dirActual = $PWD.path
           
-          Remove-Item -Path "C:\inetpub\wwwroot\TestIIS\bin" -Recurse
+          if (Test-Path -Path "C:\inetpub\wwwroot\TestIIS\bin") {
+              Remove-Item -Path "C:\inetpub\wwwroot\TestIIS\bin" -Recurse
+          }
           Copy-Item -Path "$dirActual\bin" -Destination "C:\inetpub\wwwroot\TestIIS" -Recurse
 
           Get-ChildItem -Path "C:\inetpub\wwwroot\TestIIS" -Filter "*.aspx" | Remove-Item -Force
