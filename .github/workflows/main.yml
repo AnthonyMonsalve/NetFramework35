@@ -16,5 +16,5 @@ jobs:
           mkdir $fechafinal
           cd $fechafinal
           git clone https://github.com/AnthonyMonsalve/NetFramework35.git
-
           cd NetFramework35
+          msbuild /t:Build /p:Configuracion=Release
