@@ -16,14 +16,14 @@ namespace NetFramework35
 
         protected int Count
         {
-            get { return ViewState["Count"] != null ? (int)ViewState["Count"] : 1; }
+            get { return ViewState["Count"] != null ? (int)ViewState["Count"] : 0; }
             set { ViewState["Count"] = value; }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             Count++;
-            Label1.Text = "Aplicación de instapago: clics (" + Count + ")";
+            Label1.Text = "Usted ha hecho <b>"+ Count +"</b> clics";
         }
 
     }

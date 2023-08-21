@@ -9,7 +9,7 @@
     <title></title>
 </head>
 
-<body style="background-image: url('https://instapago.com/wp-content/uploads/backgound.jpg'); background-size: cover; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh; box-sizing: border-box; overflow: hidden">
+<body style="background-image: url('https://instapago.com/wp-content/uploads/backgound.jpg'); background-size: cover; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 102vh; box-sizing: border-box; overflow: hidden">
     <form id="form1" runat="server" style="display: flex; flex-direction: column; align-items: center">
         <img src="https://instapago.com/wp-content/uploads/logoinstapago.png" style="filter: brightness(0) invert(1);" />
         <div style="display: flex; align-items: center; padding: 10px; justify-content: center">
@@ -22,7 +22,7 @@
         <div>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Aumentar clics" Style="background: #1c84c6; font-size: 17px; border: solid 1px #fff; border-radius: 5px; color: white; padding: 6px 20px; cursor: pointer;" />
 
-            <asp:Label ID="Label1" runat="server" Text="Aplicación de Instapago" Style="padding: 9px 15px; background: #EC7010; border-radius: 5px; color: white; font-family: sans-serif; font-weight: 600;"> </asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="Aplicación de Instapago" Style="padding: 9px 15px; background: #EC7010; border-radius: 5px; color: white; font-family: sans-serif;"> </asp:Label>
         </div>
     </form>
     <div style="display: flex; align-items: center; justify-content: center; margin-top: 25px">
