@@ -19,5 +19,5 @@ jobs:
 
       - name: Setup MSBuild
         run: |
-          Get-Location
-          Get-Location
+          cd C:\Users\Administrador\Documents
+          .\compilar.ps1
