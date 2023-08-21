@@ -15,6 +15,7 @@ jobs:
           $fechafinal = $fechaString.Replace(" ", "-").Replace(":", "-").Replace("/","-")
           mkdir $fechafinal
           cd $fechafinal
+          
           git clone https://github.com/AnthonyMonsalve/NetFramework35.git
 
       - name: Setup MSBuild
