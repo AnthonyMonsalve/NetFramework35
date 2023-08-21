@@ -15,8 +15,7 @@
             <br />
             <br />
             <br />
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button Instapago" />
-            
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button Instapago" style="background-color: #ff0000; color: #ffffff; font-size: 16px;" />            
         </div>
     </form>
 </body>
