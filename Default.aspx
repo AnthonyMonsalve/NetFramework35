@@ -20,8 +20,16 @@
                         color: white;
                         padding: 6px 20px;
                         cursor: pointer;" />
-                        
-                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+
+                <asp:Label ID="Label1" runat="server" Text="Aplicación de Instapago" 
+                style="
+                    padding: 10px;
+                    background: #EC7010;
+                    border-radius: 5px;
+                    color: white;
+                    font-family: sans-serif;
+                    font-weight: 600;"
+                </asp:Label>
             </div>
         </form>
     </body>
