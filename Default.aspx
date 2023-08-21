@@ -9,23 +9,23 @@
         <title></title>
     </head>
 
-    <body>
+    <body style="background-image: url('https://instapago.com/wp-content/uploads/backgound.jpg'); background-size: cover; display: flex; justify-content: center; align-items: center; min-height: 100vh; box-sizing: border-box">
         <form id="form1" runat="server" style="display: flex; flex-direction: column; align-items: center">
-            <div style="display:flex; align-items: center; padding: 20px">
-                <h1 style="font-family: sans-serif">InstaPago</h1>
-                <img src="https://instapago.com/wp-content/uploads/punto.png"  width="200"/>
+            <div style="display:flex; align-items: center; padding: 10px">
+                <h1 style="font-family: sans-serif; color: #fff; font-size: 45px; margin: 20px">InstaPago</h1>
             </div>
             <div>
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button Instapago" style="background: #1c84c6;
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Aumentar clics" style="background: #1c84c6;
                         font-size: 17px;
+                        border: solid 1px #fff;
                         border-radius: 5px;
-                        border: 1px solid #1c84c6;
                         color: white;
                         padding: 6px 20px;
                         cursor: pointer;" />
 
-                <asp:Label ID="Label1" runat="server" Text="Aplicación de Instapago" style="padding: 10px; background: #EC7010; border-radius: 5px; color: white; font-family: sans-serif; font-weight: 600;"> </asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Aplicación de Instapago" style="padding: 9px 15px; background: #EC7010; border-radius: 5px; color: white; font-family: sans-serif; font-weight: 600;"> </asp:Label>
             </div>
+            <img src="https://instapago.com/wp-content/uploads/punto.png"  style="margin: 20px auto;" width="200"/>
         </form>
     </body>
 

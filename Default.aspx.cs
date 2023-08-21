@@ -14,9 +14,17 @@ namespace NetFramework35
 
         }
 
+        protected int Count
+        {
+            get { return ViewState["Count"] != null ? (int)ViewState["Count"] : 1; }
+            set { ViewState["Count"] = value; }
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Label1.Text = "Hello World";
+            Count++;
+            Label1.Text = "Aplicación de instapago: clics (" + Count + ")";
         }
+
     }
 }
