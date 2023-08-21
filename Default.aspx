@@ -11,8 +11,9 @@
 
     <body style="background-image: url('https://instapago.com/wp-content/uploads/backgound.jpg'); background-size: cover; display: flex; justify-content: center; align-items: center; min-height: 100vh; box-sizing: border-box">
         <form id="form1" runat="server" style="display: flex; flex-direction: column; align-items: center">
+            <img src="https://instapago.com/wp-content/uploads/logoinstapago.png"  style="filter: brightness(0) invert(1);"/>
             <div style="display:flex; align-items: center; padding: 10px">
-                <h1 style="font-family: sans-serif; color: #fff; font-size: 45px; margin: 20px">InstaPago</h1>
+                <h1 style="font-family: sans-serif; color: #fff; font-size: 45px; margin: 20px">Integración Continua</h1>
             </div>
             <div>
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Aumentar clics" style="background: #1c84c6;
