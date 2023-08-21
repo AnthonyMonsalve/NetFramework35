@@ -23,7 +23,15 @@ namespace NetFramework35
         protected void Button1_Click(object sender, EventArgs e)
         {
             Count++;
-            Label1.Text = "Usted ha hecho <b>"+ Count +"</b> clics";
+            Label1.Text = "Usted ha hecho <b>" + Count + "</b> clics";
+            Button2.Visible = true;
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            ViewState["Count"] = 0;
+            Label1.Text = "Usted ha hecho <b>" + Count + "</b> clics";
+            Button2.Visible = false;
         }
 
     }
