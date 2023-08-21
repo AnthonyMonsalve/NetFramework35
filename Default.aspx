@@ -10,7 +10,11 @@
     </head>
 
     <body>
-        <form id="form1" runat="server">
+        <form id="form1" runat="server" style="display: flex; flex-direction: column; align-items: center">
+            <div style="display:flex; align-items: center; padding: 20px">
+                <h1 style="font-family: sans-serif">InstaPago</h1>
+                <img src="https://instapago.com/wp-content/uploads/punto.png"  width="200"/>
+            </div>
             <div>
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button Instapago" style="background: #1c84c6;
                         font-size: 17px;
