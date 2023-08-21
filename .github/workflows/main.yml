@@ -18,5 +18,11 @@ jobs:
           git clone https://github.com/AnthonyMonsalve/NetFramework35.git
           cd NetFramework35
           msbuild /t:Build /p:Configuracion=Release
-          #$directory = $PWD.path
-          #Move-Item -Path "$directory/bin" -Destination "C:\inetpub\wwwroot\TestIIS" -Force -Recurse
+
+          $dirActual = $PWD.path
+          
+          Remove-Item -Path "C:\inetpub\wwwroot\TestIIS\bin" -Recurse
+          Copy-Item -Path "$dirActual\bin" -Destination "C:\inetpub\wwwroot\TestIIS" -Recurse
+
+          Get-ChildItem -Path "C:\inetpub\wwwroot\TestIIS" -Filter "*.aspx" | Remove-Item -Force
+          Copy-Item -Path "$dirActual\*.aspx" -Destination "C:\inetpub\wwwroot\TestIIS" -Recurse
