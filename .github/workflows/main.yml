@@ -18,3 +18,8 @@ jobs:
           git clone https://github.com/AnthonyMonsalve/NetFramework35.git
           cd NetFramework35
           msbuild /t:Build /p:Configuracion=Release
+          $directory = $PWD.path
+      - name: Publicar en IIS
+        run: |
+          #Move-Item -Path "origen" -Destination "C:\inetpub\wwwroot\TestIIS" -Force -Recurse
+          cd $directory
