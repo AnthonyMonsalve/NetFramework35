@@ -10,7 +10,7 @@ jobs:
       - name: Hacer git clone
         run: |
           #(1) Acceder al directorio de clonacion del repositorio
-          $Directory = "C:\Users\Administrador\Documents"
+          $Directory = "C:\Users\Administrador\Documents\ASPNET-Aplication"
           cd $Directory
 
           #Crear la estructura de la carpeta contenedora de la nueva version del repositorio
