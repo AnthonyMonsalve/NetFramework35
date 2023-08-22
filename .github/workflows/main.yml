@@ -9,6 +9,12 @@ jobs:
     steps:
       - name: Hacer git clone
         run: |
+          #Ruta del archivo de logs
+          $fecha = Get-Date -Format "yyyyMMdd_HHmmss"
+          $archivoLog = "C:\inetpub\wwwroot\TestIIS\logs\registro_$fecha.log"
+          Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
+          Write-Output "Se inicio una nueva actividad en GitHub Activities" | Out-File -FilePath $archivoLog -Append
+        
           #(1) Acceder al directorio de clonacion del repositorio
           $Directory = "C:\Users\Administrador\Documents\ASPNET-Aplication"
           cd $Directory
