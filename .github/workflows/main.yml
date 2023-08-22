@@ -20,14 +20,14 @@ jobs:
 
           #Crear la nueva carpeta en el directorio seleccionado en el paso (1)
           mkdir $fechafinal
-          Write-Host "Carpeta creada en Directory\$fechafinal"
+          Write-Host "Carpeta creada en Directory\$fechafinal" -ForegroundColor Green
 
           #Acceder a la nueva carpeta
           cd $fechafinal
 
           #Comando para clonar el nuevo repositorio
           git clone https://github.com/AnthonyMonsalve/NetFramework35.git
-          Write-Host "Se ha clonado el repositorio con exito"
+          Write-Host "Se ha clonado el repositorio con exito" -ForegroundColor Green
           
           # (2) se accede al directorio con la solucion seleccionada para ser compilada
           cd NetFramework35
@@ -39,7 +39,7 @@ jobs:
 
           #A continuacion se compilara el proyecto seleccionado en el paso (2)
           msbuild /t:Build /p:Configuracion=Release
-          Write-Host "Se compilo con exito el repositorio"
+          Write-Host "Se compilo con exito el repositorio" -ForegroundColor Green
 
           $dirActual = $PWD.path
 
@@ -52,4 +52,4 @@ jobs:
           Get-ChildItem -Path "C:\inetpub\wwwroot\TestIIS" -Filter "*.aspx" | Remove-Item -Force
           Copy-Item -Path "$dirActual\*.aspx" -Destination "C:\inetpub\wwwroot\TestIIS" -Recurse
 
-          Write-Host "Se ha publicado con exito la nueva version del codigo en el servidor"
+          Write-Host "Se ha publicado con exito la nueva version del codigo en el servidor" -ForegroundColor Green
