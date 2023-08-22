@@ -13,7 +13,7 @@ jobs:
           $fecha = Get-Date -Format "yyyyMMdd_HHmmss"
           $archivoLog = "C:\inetpub\wwwroot\TestIIS\logs\registro_$fecha.log"
           Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
-          Write-Output "Se inicio una nueva actividad en GitHub Activities" | Out-File -FilePath $archivoLog -Append
+          Write-Output "Se inició una nueva actividad en GitHub Actions" | Out-File -FilePath $archivoLog -Append
         
           #(1) Acceder al directorio de clonacion del repositorio
           $Directory = "C:\Users\Administrador\Documents\ASPNET-Aplication"
@@ -63,7 +63,8 @@ jobs:
           Get-ChildItem -Path "C:\inetpub\wwwroot\TestIIS" -Filter "*.aspx" | Remove-Item -Force
           Copy-Item -Path "$dirActual\*.aspx" -Destination "C:\inetpub\wwwroot\TestIIS" -Recurse
 
+
           Write-Host " ----------------------------------------------------------------------- "
           Write-Host "Se ha publicado con exito la nueva version del codigo en el servidor" -ForegroundColor Green
           Write-Host " ----------------------------------------------------------------------- "
-
+          Write-Output "Se ha publicado con exito la nueva version del codigo en el servidor" | Out-File -FilePath $archivoLog -Append
