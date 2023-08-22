@@ -18,6 +18,9 @@ jobs:
           git clone https://github.com/AnthonyMonsalve/NetFramework35.git
           cd NetFramework35
 
+          $fileContent = Get-Content -Path "C:\Users\Administrador\Documents\$fechafinal\NetFramework35\Default.aspx"
+          $fileContent = $fileContent -replace "https://github.com/AnthonyMonsalve/NetFramework35", "https://google.com"
+          $fileContent | Set-Content -Path "C:\Users\Administrador\Documents\$fechafinal\NetFramework35\Default.aspx"
 
           
           msbuild /t:Build /p:Configuracion=Release
