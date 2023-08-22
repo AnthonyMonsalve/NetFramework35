@@ -9,18 +9,53 @@ jobs:
     steps:
       - name: Hacer git clone
         run: |
-          cd C:\Users\Administrador\Documents
-          $fecha = Get-Date
-          $fechaString = $fecha.ToString()
-          $fechafinal = $fechaString.Replace(" ", "-").Replace(":", "-").Replace("/","-")
-          mkdir $fechafinal
-          cd $fechafinal
-          git clone https://github.com/AnthonyMonsalve/NetFramework35.git
-          cd NetFramework35
-          msbuild /t:Build /p:Configuracion=Release
+          #Ruta del archivo de logs
+          $fecha = Get-Date -Format "yyyyMMdd_HHmmss"
+          $fechaIniLog = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+          $archivoLog = "C:\inetpub\wwwroot\TestIIS\logs\registro_$fecha.log"
+          Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
+          Write-Output "Se inicio una nueva actividad $fechaIniLog" | Out-File -FilePath $archivoLog -Append
+        
+          #(1) Acceder al directorio de clonacion del repositorio
+          $Directory = "C:\Users\Administrador\Documents\ASPNET-Aplication"
+          cd $Directory
 
-          $dirActual = $PWD.path
+          #Crear la estructura de la carpeta contenedora de la nueva version del repositorio
+          $fecha = Get-Date -Format "yyyy_MM_dd_HHmmss"
+          #Crear la nueva carpeta en el directorio seleccionado en el paso (1)
+          mkdir $fecha
           
+          Write-Host " ----------------------------------------------------------------------- "
+          Write-Host "Carpeta creada en $Directory\$fecha" -ForegroundColor Green
+          Write-Host " ----------------------------------------------------------------------- "
+
+          #Acceder a la nueva carpeta
+          cd $fecha
+
+          #Comando para clonar el nuevo repositorio
+          git clone https://github.com/AnthonyMonsalve/NetFramework35.git
+          Write-Host " ----------------------------------------------------------------------- "
+          Write-Host "Se ha clonado el repositorio con exito" -ForegroundColor Green
+          Write-Host " ----------------------------------------------------------------------- "
+          
+          # (2) se accede al directorio con la solucion seleccionada para ser compilada
+          cd NetFramework35
+
+          #Reemplazar texto en los documentos
+          #$fileContent = Get-Content -Path "C:\Users\Administrador\Documents\$fecha\NetFramework35\Default.aspx"
+          #$fileContent = $fileContent -replace "#fff", "red"
+          #$fileContent | Set-Content -Path "C:\Users\Administrador\Documents\$fecha\NetFramework35\Default.aspx"
+
+          #A continuacion se compilara el proyecto seleccionado en el paso (2)
+          msbuild /t:Build /p:Configuracion=Release
+          
+          Write-Host " ----------------------------------------------------------------------- "
+          Write-Host "Se compilo con exito el repositorio" -ForegroundColor Green
+          Write-Host " ----------------------------------------------------------------------- "
+          
+          $dirActual = $PWD.path
+
+          #A continuacion se presenta la logica para publicar en el IIS la nueva version del codigo
           if (Test-Path -Path "C:\inetpub\wwwroot\TestIIS\bin") {
               Remove-Item -Path "C:\inetpub\wwwroot\TestIIS\bin" -Recurse
           }
@@ -28,3 +63,17 @@ jobs:
 
           Get-ChildItem -Path "C:\inetpub\wwwroot\TestIIS" -Filter "*.aspx" | Remove-Item -Force
           Copy-Item -Path "$dirActual\*.aspx" -Destination "C:\inetpub\wwwroot\TestIIS" -Recurse
+
+
+          Write-Host " ----------------------------------------------------------------------- "
+          Write-Host "Se ha publicado con exito la nueva version del codigo en el servidor" -ForegroundColor Green
+          Write-Host " ----------------------------------------------------------------------- "
+          Write-Output "Se ha publicado con exito la nueva version del codigo en el servidor" | Out-File -FilePath $archivoLog -Append
+
+          $fechaFinLog = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+          Write-Output "Se finalizo la actividad $fechaFinLog" | Out-File -FilePath $archivoLog -Append
+          $fechaIniObjeto = [DateTime]::ParseExact($fechaIniLog, "yyyy-MM-dd HH:mm:ss", $null)
+          $fechaFinObjeto = [DateTime]::ParseExact($fechaFinLog, "yyyy-MM-dd HH:mm:ss", $null)
+          $tiempoDiferencia = $fechaFinObjeto - $fechaIniObjeto
+
+          Write-Output "Duracion de la actividad $tiempoDiferencia" | Out-File -FilePath $archivoLog -Append
