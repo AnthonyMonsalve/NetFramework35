@@ -47,7 +47,6 @@ jobs:
           Write-Host " ----------------------------------------------------------------------- "
           Write-Host "Se compilo con exito el repositorio" -ForegroundColor Green
           Write-Host " ----------------------------------------------------------------------- "
-
           
           $dirActual = $PWD.path
 
