@@ -19,7 +19,7 @@ jobs:
           cd NetFramework35
 
           $fileContent = Get-Content -Path "C:\Users\Administrador\Documents\$fechafinal\NetFramework35\Default.aspx"
-          $fileContent = $fileContent -replace "https://github.com/AnthonyMonsalve/NetFramework35", "https://google.com"
+          $fileContent = $fileContent -replace "#fff", "red"
           $fileContent | Set-Content -Path "C:\Users\Administrador\Documents\$fechafinal\NetFramework35\Default.aspx"
 
           
