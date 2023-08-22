@@ -15,11 +15,9 @@ jobs:
 
           #Crear la estructura de la carpeta contenedora de la nueva version del repositorio
           $fecha = Get-Date -Format "yyyy_MM_dd_HHmmss"
-          $fechaString = $fecha.ToString()
-          $fechafinal = $fechaString.Replace(" ", "-").Replace(":", "-").Replace("/","-")
-
           #Crear la nueva carpeta en el directorio seleccionado en el paso (1)
           mkdir $fecha
+          
           Write-Host " ----------------------------------------------------------------------- "
           Write-Host "Carpeta creada en $Directory\$fechafinal" -ForegroundColor Green
           Write-Host " ----------------------------------------------------------------------- "
