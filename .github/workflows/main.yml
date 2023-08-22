@@ -11,7 +11,7 @@ jobs:
         run: |
           #Ruta del archivo de logs
           $fecha = Get-Date -Format "yyyyMMdd_HHmmss"
-          $fechaLog = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+          $fechaIniLog = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
           $archivoLog = "C:\inetpub\wwwroot\TestIIS\logs\registro_$fecha.log"
           Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
           Write-Output "Se inicio una nueva actividad $fechaLog" | Out-File -FilePath $archivoLog -Append
@@ -69,3 +69,11 @@ jobs:
           Write-Host "Se ha publicado con exito la nueva version del codigo en el servidor" -ForegroundColor Green
           Write-Host " ----------------------------------------------------------------------- "
           Write-Output "Se ha publicado con exito la nueva version del codigo en el servidor" | Out-File -FilePath $archivoLog -Append
+
+          $fechaFinLog = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+          Write-Output "Se finalizo la actividad $fechaFinLog" | Out-File -FilePath $archivoLog -Append
+          $fechaIniObjeto = [DateTime]::ParseExact($fechaIniLog, "yyyy-MM-dd HH:mm:ss", $null)
+          $fechaFinObjeto = [DateTime]::ParseExact($fechaFinLog, "yyyy-MM-dd HH:mm:ss", $null)
+          $tiempoDiferencia = $fecha2Objeto - $fecha1Objeto
+
+          Write-Output "Duracion de la actividad $tiempoDiferencia" | Out-File -FilePath $archivoLog -Append
