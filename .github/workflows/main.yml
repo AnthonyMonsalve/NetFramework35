@@ -11,9 +11,10 @@ jobs:
         run: |
           #Ruta del archivo de logs
           $fecha = Get-Date -Format "yyyyMMdd_HHmmss"
+          $fechaLog = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
           $archivoLog = "C:\inetpub\wwwroot\TestIIS\logs\registro_$fecha.log"
           Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
-          Write-Output "Se inició una nueva actividad en GitHub Actions" | Out-File -FilePath $archivoLog -Append
+          Write-Output "Se inicio una nueva actividad $fechaLog" | Out-File -FilePath $archivoLog -Append
         
           #(1) Acceder al directorio de clonacion del repositorio
           $Directory = "C:\Users\Administrador\Documents\ASPNET-Aplication"
