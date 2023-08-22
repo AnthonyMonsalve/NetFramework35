@@ -20,27 +20,35 @@ jobs:
 
           #Crear la nueva carpeta en el directorio seleccionado en el paso (1)
           mkdir $fechafinal
+          Write-Host " "
           Write-Host "Carpeta creada en Directory\$fechafinal" -ForegroundColor Green
+          Write-Host " "
 
           #Acceder a la nueva carpeta
           cd $fechafinal
 
           #Comando para clonar el nuevo repositorio
           git clone https://github.com/AnthonyMonsalve/NetFramework35.git
+          Write-Host " "
           Write-Host "Se ha clonado el repositorio con exito" -ForegroundColor Green
+          Write-Host " "
           
           # (2) se accede al directorio con la solucion seleccionada para ser compilada
           cd NetFramework35
 
           #Reemplazar texto en los documentos
-          $fileContent = Get-Content -Path "C:\Users\Administrador\Documents\$fechafinal\NetFramework35\Default.aspx"
-          $fileContent = $fileContent -replace "#fff", "red"
-          $fileContent | Set-Content -Path "C:\Users\Administrador\Documents\$fechafinal\NetFramework35\Default.aspx"
+          #$fileContent = Get-Content -Path "C:\Users\Administrador\Documents\$fechafinal\NetFramework35\Default.aspx"
+          #$fileContent = $fileContent -replace "#fff", "red"
+          #$fileContent | Set-Content -Path "C:\Users\Administrador\Documents\$fechafinal\NetFramework35\Default.aspx"
 
           #A continuacion se compilara el proyecto seleccionado en el paso (2)
           msbuild /t:Build /p:Configuracion=Release
+          
+          Write-Host " "
           Write-Host "Se compilo con exito el repositorio" -ForegroundColor Green
+          Write-Host " "
 
+          
           $dirActual = $PWD.path
 
           #A continuacion se presenta la logica para publicar en el IIS la nueva version del codigo
@@ -52,4 +60,5 @@ jobs:
           Get-ChildItem -Path "C:\inetpub\wwwroot\TestIIS" -Filter "*.aspx" | Remove-Item -Force
           Copy-Item -Path "$dirActual\*.aspx" -Destination "C:\inetpub\wwwroot\TestIIS" -Recurse
 
+          Write-Host " "
           Write-Host "Se ha publicado con exito la nueva version del codigo en el servidor" -ForegroundColor Green
