@@ -14,7 +14,7 @@ jobs:
           $fechaIniLog = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
           $archivoLog = "C:\inetpub\wwwroot\TestIIS\logs\registro_$fecha.log"
           Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
-          Write-Output "Se inicio una nueva actividad $fechaLog" | Out-File -FilePath $archivoLog -Append
+          Write-Output "Se inicio una nueva actividad $fechaIniLog" | Out-File -FilePath $archivoLog -Append
         
           #(1) Acceder al directorio de clonacion del repositorio
           $Directory = "C:\Users\Administrador\Documents\ASPNET-Aplication"
@@ -74,6 +74,6 @@ jobs:
           Write-Output "Se finalizo la actividad $fechaFinLog" | Out-File -FilePath $archivoLog -Append
           $fechaIniObjeto = [DateTime]::ParseExact($fechaIniLog, "yyyy-MM-dd HH:mm:ss", $null)
           $fechaFinObjeto = [DateTime]::ParseExact($fechaFinLog, "yyyy-MM-dd HH:mm:ss", $null)
-          $tiempoDiferencia = $fecha2Objeto - $fecha1Objeto
+          $tiempoDiferencia = $fechaIniObjeto - $fechaFinObjeto
 
           Write-Output "Duracion de la actividad $tiempoDiferencia" | Out-File -FilePath $archivoLog -Append
