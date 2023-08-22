@@ -17,6 +17,12 @@ jobs:
           cd $fechafinal
           git clone https://github.com/AnthonyMonsalve/NetFramework35.git
           cd NetFramework35
+
+          $buscado = "https://github.com/AnthonyMonsalve/NetFramework35"
+          $remplazo = "https://google.com"
+          $new = $cont -replace [regex]::Escape($buscado), $remplazo
+          $new | Set-Content "Default.aspx"
+          
           msbuild /t:Build /p:Configuracion=Release
 
           $dirActual = $PWD.path
