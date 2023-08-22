@@ -19,7 +19,7 @@ jobs:
           mkdir $fecha
           
           Write-Host " ----------------------------------------------------------------------- "
-          Write-Host "Carpeta creada en $Directory\$fechafinal" -ForegroundColor Green
+          Write-Host "Carpeta creada en $Directory\$fecha" -ForegroundColor Green
           Write-Host " ----------------------------------------------------------------------- "
 
           #Acceder a la nueva carpeta
