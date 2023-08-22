@@ -74,6 +74,6 @@ jobs:
           Write-Output "Se finalizo la actividad $fechaFinLog" | Out-File -FilePath $archivoLog -Append
           $fechaIniObjeto = [DateTime]::ParseExact($fechaIniLog, "yyyy-MM-dd HH:mm:ss", $null)
           $fechaFinObjeto = [DateTime]::ParseExact($fechaFinLog, "yyyy-MM-dd HH:mm:ss", $null)
-          $tiempoDiferencia = $fechaIniObjeto - $fechaFinObjeto
+          $tiempoDiferencia = $fechaFinObjeto - $fechaIniObjeto
 
           Write-Output "Duracion de la actividad $tiempoDiferencia" | Out-File -FilePath $archivoLog -Append
