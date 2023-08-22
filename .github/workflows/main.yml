@@ -9,24 +9,41 @@ jobs:
     steps:
       - name: Hacer git clone
         run: |
-          cd C:\Users\Administrador\Documents
+          #(1) Acceder al directorio de clonacion del repositorio
+          $Directory = "C:\Users\Administrador\Documents"
+          cd $Directory
+
+          #Crear la estructura de la carpeta contenedora de la nueva version del repositorio
           $fecha = Get-Date
           $fechaString = $fecha.ToString()
           $fechafinal = $fechaString.Replace(" ", "-").Replace(":", "-").Replace("/","-")
+
+          #Crear la nueva carpeta en el directorio seleccionado en el paso (1)
           mkdir $fechafinal
+          Write-Host "Carpeta creada en Directory\$fechafinal"
+
+          #Acceder a la nueva carpeta
           cd $fechafinal
+
+          #Comando para clonar el nuevo repositorio
           git clone https://github.com/AnthonyMonsalve/NetFramework35.git
+          Write-Host "Se ha clonado el repositorio con exito"
+          
+          # (2) se accede al directorio con la solucion seleccionada para ser compilada
           cd NetFramework35
 
+          #Reemplazar texto en los documentos
           $fileContent = Get-Content -Path "C:\Users\Administrador\Documents\$fechafinal\NetFramework35\Default.aspx"
           $fileContent = $fileContent -replace "#fff", "red"
           $fileContent | Set-Content -Path "C:\Users\Administrador\Documents\$fechafinal\NetFramework35\Default.aspx"
 
-          
+          #A continuacion se compilara el proyecto seleccionado en el paso (2)
           msbuild /t:Build /p:Configuracion=Release
+          Write-Host "Se compilo con exito el repositorio"
 
           $dirActual = $PWD.path
-          
+
+          #A continuacion se presenta la logica para publicar en el IIS la nueva version del codigo
           if (Test-Path -Path "C:\inetpub\wwwroot\TestIIS\bin") {
               Remove-Item -Path "C:\inetpub\wwwroot\TestIIS\bin" -Recurse
           }
@@ -34,3 +51,5 @@ jobs:
 
           Get-ChildItem -Path "C:\inetpub\wwwroot\TestIIS" -Filter "*.aspx" | Remove-Item -Force
           Copy-Item -Path "$dirActual\*.aspx" -Destination "C:\inetpub\wwwroot\TestIIS" -Recurse
+
+          Write-Host "Se ha publicado con exito la nueva version del codigo en el servidor"
