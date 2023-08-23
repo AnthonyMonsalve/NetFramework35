@@ -24,7 +24,6 @@
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Aumentar clics" Style="background: #1c84c6; font-size: 17px; border: solid 1px #fff; border-radius: 5px; color: white; padding: 6px 20px; cursor: pointer; min-width: 165px;" />
                 <asp:Label ID="Label1" runat="server" Text="Aplicación de Instapago" Style="padding: 9px 15px; background: #EC7010; border-radius: 5px; color: white; font-family: sans-serif;"> </asp:Label>
             </div>
-
             <asp:Button ID="Button2" Visible="false" runat="server" OnClick="Button2_Click" Text="Reiniciar" Style="background: #1c84c6; font-size: 17px; border: solid 1px #fff; border-radius: 5px; color: white; padding: 6px 20px; cursor: pointer; width: 100%;" />
         </div>
     </form>
