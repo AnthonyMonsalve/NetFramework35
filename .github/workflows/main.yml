@@ -81,7 +81,7 @@ jobs:
           Write-Host " ----------------------------------------------------------------------- "
           Write-Output "Se ha publicado con exito la nueva version del codigo en el servidor" | Out-File -FilePath $archivoLog -Append
           
-          $commit = '${{ env.commit }}'
+          $commit = '${{ github.sha }}'
           Write-Output "Commit > $commit" | Out-File -FilePath $archivoLog -Append
 
           $fechaFinLog = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
