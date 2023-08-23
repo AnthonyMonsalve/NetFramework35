@@ -10,6 +10,11 @@ jobs:
       - name: Obtener commit actual
         id: obtener_commit
         run: echo "::set-output name=commit::${{ github.sha }}"
+        
+      - name: Obtener usuario
+        id: obtener_usuario
+        run: echo "::set-output name=usuario::${{ github.actor }}"
+        
       - name: Hacer git clone
         run: |
           #Ruta del archivo de logs
@@ -17,7 +22,9 @@ jobs:
           $fechaIniLog = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
           $archivoLog = "C:\inetpub\wwwroot\TestIIS\logs\registro_$fecha.log"
           Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
-          Write-Output "Se inicio una nueva actividad $fechaIniLog" | Out-File -FilePath $archivoLog -Append
+
+          $usuario = '${{ steps.obtener_usuario.outputs.usuario }}'
+          Write-Output "$usuario: inicio una nueva actividad $fechaIniLog" | Out-File -FilePath $archivoLog -Append
         
           #(1) Acceder al directorio de clonacion del repositorio
           $Directory = "C:\Users\Administrador\Documents\ASPNET-Aplication"
