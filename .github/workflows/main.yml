@@ -7,6 +7,9 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
+      - name: Obtener commit actual
+        id: obtener_commit
+        run: echo "::set-output name=commit::${{ github.sha }}"
       - name: Hacer git clone
         run: |
           #Ruta del archivo de logs
@@ -69,7 +72,9 @@ jobs:
           Write-Host "Se ha publicado con exito la nueva version del codigo en el servidor" -ForegroundColor Green
           Write-Host " ----------------------------------------------------------------------- "
           Write-Output "Se ha publicado con exito la nueva version del codigo en el servidor" | Out-File -FilePath $archivoLog -Append
-          Write-Output "Commit {{ github.sha }}" | Out-File -FilePath $archivoLog -Append
+          
+          $commit = '${{ steps.obtener_commit.outputs.commit }}'
+          Write-Output $commit | Out-File -FilePath $archivoLog -Append
 
           $fechaFinLog = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
           Write-Output "Se finalizo la actividad $fechaFinLog" | Out-File -FilePath $archivoLog -Append
