@@ -24,7 +24,7 @@ jobs:
           Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
 
           $usuario = '${{ steps.obtener_usuario.outputs.usuario }}'
-          Write-Output "$usuario: inicio una nueva actividad $fechaIniLog" | Out-File -FilePath $archivoLog -Append
+          Write-Output "$usuario > inicio una nueva actividad $fechaIniLog" | Out-File -FilePath $archivoLog -Append
         
           #(1) Acceder al directorio de clonacion del repositorio
           $Directory = "C:\Users\Administrador\Documents\ASPNET-Aplication"
