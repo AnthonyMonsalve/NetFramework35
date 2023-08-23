@@ -89,5 +89,6 @@ jobs:
           $fechaIniObjeto = [DateTime]::ParseExact($fechaIniLog, "yyyy-MM-dd HH:mm:ss", $null)
           $fechaFinObjeto = [DateTime]::ParseExact($fechaFinLog, "yyyy-MM-dd HH:mm:ss", $null)
           $tiempoDiferencia = $fechaFinObjeto - $fechaIniObjeto
-
+          
+          Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
           Write-Output "Duracion de la actividad $tiempoDiferencia" | Out-File -FilePath $archivoLog -Append
