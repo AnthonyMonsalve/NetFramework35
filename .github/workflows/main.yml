@@ -6,15 +6,7 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    steps:
-      - name: Obtener commit actual
-        id: obtener_commit
-        run: echo "commit=${{ github.sha }}" >> $GITHUB_ENV
-        
-      - name: Obtener usuario
-        id: obtener_usuario
-        run: echo "::set-output name=usuario::${{ github.actor }}"
-        
+    steps:     
       - name: Hacer git clone
         run: |
           #Ruta del archivo de logs
@@ -23,7 +15,7 @@ jobs:
           $archivoLog = "C:\inetpub\wwwroot\TestIIS\logs\registro_$fecha.log"
           Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
 
-          $usuario = '${{ steps.obtener_usuario.outputs.usuario }}'
+          $usuario = '${{ github.actor }}'
           Write-Output "$usuario > inicio una nueva actividad $fechaIniLog" | Out-File -FilePath $archivoLog -Append
           Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
 
