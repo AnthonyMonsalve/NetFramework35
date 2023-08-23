@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Obtener commit actual
         id: obtener_commit
-        run: echo "{github}={sha}" >> $GITHUB_STATE
+        run: echo "usuario=${{ github.actor }}" >> $GITHUB_ENV
         
       - name: Obtener usuario
         id: obtener_usuario
