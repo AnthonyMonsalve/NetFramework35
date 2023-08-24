@@ -15,7 +15,7 @@ jobs:
           $archivoLog = "C:\inetpub\wwwroot\TestIIS\logs\registro_$fecha.log"
           Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
 
-          $usuario = '${{ github.actor }}'
+          $usuario = '${{ git.hub.actor }}'
           Write-Output "$usuario > inicio una nueva actividad $fechaIniLog" | Out-File -FilePath $archivoLog -Append
           Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
 
@@ -84,3 +84,13 @@ jobs:
           
           Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
           Write-Output "Duracion de la actividad $tiempoDiferencia" | Out-File -FilePath $archivoLog -Append
+
+  if_error:
+    needs: build
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: self-hosted
+    steps:
+      - name: Documentar error
+        run: |
+          $archivoLog = "C:\inetpub\wwwroot\TestIIS\logs\registro_$fecha.log"
+          Write-Output "-------------------OCURRIO UN ERROR-------------------------" | Out-File -FilePath $archivoLog -Append
