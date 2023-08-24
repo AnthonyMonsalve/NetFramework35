@@ -15,7 +15,7 @@
         <div style="display: flex; align-items: center; padding: 10px; justify-content: center">
             <h1 style="font-family: sans-serif; color: #fff; font-size: 45px; margin: 20px 15px">Integración Continua</h1>
             <p style="color: #fff; font-family: sans-serif; display: flex; align-items: center; margin: 15px 0 0 0; font-size: 20px">
-                Con <b style="margin-left: 10px">GitHub Actions</b>
+                Con <b style="margin-left: 10px">GitHub Actions INSAPAGO</b>
                 <img width="40" style="filter: brightness(0) invert(1); margin-left: 10px" src="https://avatars.githubusercontent.com/u/44036562?s=280&v=4" />
             </p>
         </div>
