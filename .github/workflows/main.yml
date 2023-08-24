@@ -26,15 +26,15 @@ jobs:
           #Crear la estructura de la carpeta contenedora de la nueva version del repositorio
           $fecha = Get-Date -Format "yyyy_MM_dd_HHmmss"
           #Crear la nueva carpeta en el directorio seleccionado en el paso (1)
-          mkdir $fecha
+          mkdir fecha
           #mkdir fecha
           
           Write-Host " ----------------------------------------------------------------------- "
-          Write-Host "Carpeta creada en $Directory\$fecha" -ForegroundColor Green
+          Write-Host "Carpeta creada en $Directory\fecha" -ForegroundColor Green
           Write-Host " ----------------------------------------------------------------------- "
 
           #Acceder a la nueva carpeta
-          cd $fecha
+          cd fecha
 
           #Comando para clonar el nuevo repositorio
           git clone https://github.com/AnthonyMonsalve/NetFramework35.git
