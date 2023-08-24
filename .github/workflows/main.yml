@@ -15,7 +15,7 @@ jobs:
           $archivoLog = "C:\inetpub\wwwroot\TestIIS\logs\registro_$fecha.log"
           Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
 
-          $usuario = '${{ git.hub.actor }}'
+          $usuario = '${{ github.actor }}'
           Write-Output "$usuario > inicio una nueva actividad $fechaIniLog" | Out-File -FilePath $archivoLog -Append
           Write-Output "---------------------------------------------" | Out-File -FilePath $archivoLog -Append
 
@@ -26,7 +26,8 @@ jobs:
           #Crear la estructura de la carpeta contenedora de la nueva version del repositorio
           $fecha = Get-Date -Format "yyyy_MM_dd_HHmmss"
           #Crear la nueva carpeta en el directorio seleccionado en el paso (1)
-          mkdir $fecha
+          #mkdir $fecha
+          mkdir fecha
           
           Write-Host " ----------------------------------------------------------------------- "
           Write-Host "Carpeta creada en $Directory\$fecha" -ForegroundColor Green
