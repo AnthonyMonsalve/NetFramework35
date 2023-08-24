@@ -99,4 +99,4 @@ jobs:
           $fechaIniLog = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
           $archivoLog = "C:\inetpub\wwwroot\TestIIS\logs\error_$fecha.log"
           Write-Output "-------------------OCURRIO UN ERROR-------------------------" | Out-File -FilePath $archivoLog -Append
-          Write-Output "$ERROR_MESSAGE" | Out-File -FilePath $archivoLog -Append
+          echo "Error en Action anterior: $ERROR_MESSAGE"
