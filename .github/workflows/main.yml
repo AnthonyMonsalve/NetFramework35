@@ -92,5 +92,8 @@ jobs:
     steps:
       - name: Documentar error
         run: |
-          $archivoLog = "C:\inetpub\wwwroot\TestIIS\logs\registro_$fecha.log"
+          #Ruta del archivo de logs
+          $fecha = Get-Date -Format "yyyyMMdd_HHmmss"
+          $fechaIniLog = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+          $archivoLog = "C:\inetpub\wwwroot\TestIIS\logs\error_$fecha.log"
           Write-Output "-------------------OCURRIO UN ERROR-------------------------" | Out-File -FilePath $archivoLog -Append
